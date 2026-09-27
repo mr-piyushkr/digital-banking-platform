@@ -65,6 +65,13 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
             """)
     BigDecimal sumDebitsSince(@Param("accountId") Long accountId, @Param("since") Instant since);
 
+    /** Velocity rule input — counted in SQL rather than by loading rows. */
+    @Query("""
+            SELECT COUNT(t) FROM Transaction t
+            WHERE t.fromAccount.id = :accountId AND t.createdAt >= :since
+            """)
+    long countDebitsSince(@Param("accountId") Long accountId, @Param("since") Instant since);
+
     long countByStatus(TransactionStatus status);
 
     long countByCreatedAtAfter(Instant since);

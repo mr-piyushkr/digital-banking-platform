@@ -50,6 +50,9 @@ class AuthServiceTest {
     @Mock private AuthenticationManager authenticationManager;
     @Mock private JwtService jwtService;
     @Mock private RefreshTokenStore refreshTokenStore;
+    @Mock private org.springframework.context.ApplicationEventPublisher applicationEventPublisher;
+    @Mock private com.bankflow.util.ReferenceGenerator referenceGenerator;
+    @Mock private com.bankflow.util.RequestContext requestContext;
 
     @InjectMocks private AuthService authService;
 

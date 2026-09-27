@@ -3,6 +3,7 @@ package com.bankflow.service;
 import java.time.Duration;
 import java.time.Instant;
 
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
@@ -23,10 +24,13 @@ import com.bankflow.exception.BusinessException;
 import com.bankflow.exception.DuplicateResourceException;
 import com.bankflow.exception.ErrorCode;
 import com.bankflow.exception.ResourceNotFoundException;
+import com.bankflow.kafka.event.UserRegisteredEvent;
 import com.bankflow.repository.RoleRepository;
 import com.bankflow.repository.UserRepository;
 import com.bankflow.security.JwtService;
 import com.bankflow.security.RefreshTokenStore;
+import com.bankflow.util.ReferenceGenerator;
+import com.bankflow.util.RequestContext;
 
 import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;
@@ -47,6 +51,9 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
     private final RefreshTokenStore refreshTokenStore;
+    private final ApplicationEventPublisher applicationEventPublisher;
+    private final ReferenceGenerator referenceGenerator;
+    private final RequestContext requestContext;
 
     @Transactional
     public AuthResponse register(RegisterRequest request) {
@@ -80,6 +87,15 @@ public class AuthService {
 
         User saved = userRepository.save(user);
         log.info("Registered user {} (id {})", saved.getEmail(), saved.getId());
+
+        applicationEventPublisher.publishEvent(new UserRegisteredEvent(
+                referenceGenerator.nextEventId(),
+                Instant.now(),
+                saved.getId(),
+                saved.getEmail(),
+                saved.getFullName(),
+                requestContext.clientIp(),
+                requestContext.userAgent()));
 
         return issueTokens(saved);
     }

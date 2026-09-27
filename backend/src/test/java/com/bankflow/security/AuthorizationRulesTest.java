@@ -86,7 +86,7 @@ class AuthorizationRulesTest {
     @WithMockUser(username = "auditor@example.com", roles = "AUDITOR")
     void auditorCanReachAuditLogs() throws Exception {
         mockMvc.perform(get("/api/admin/audit-logs"))
-                .andExpect(status().isNotFound());
+                .andExpect(status().isOk());
     }
 
     @Test

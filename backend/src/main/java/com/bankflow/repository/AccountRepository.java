@@ -32,6 +32,8 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
     Page<Account> findByStatus(AccountStatus status, Pageable pageable);
 
+    long countByStatus(AccountStatus status);
+
     /**
      * Issues SELECT ... FOR UPDATE, so a concurrent debit on the same account
      * blocks until this transaction commits. Without this, two withdrawals that

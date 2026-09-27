@@ -13,8 +13,10 @@ spring:
     password: ${DB_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
-      maximum-pool-size: 8
-      minimum-idle: 1
+      # Larger than the concurrency test's thread count, so that test measures
+      # row-lock contention rather than connection starvation.
+      maximum-pool-size: 24
+      minimum-idle: 2
 
   flyway:
     enabled: true
