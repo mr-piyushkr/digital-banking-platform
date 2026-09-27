@@ -1,0 +1,112 @@
+/* Single source of truth for every visual value. Components read tokens only. */
+
+:root {
+  /* Neutrals, slightly cool so they sit correctly against the blue */
+  --ink-900: #101720;
+  --ink-700: #2a3340;
+  --ink-600: #46505e;
+  --ink-400: #78838f;
+  --ink-300: #9aa4b0;
+
+  --surface-0: #ffffff;
+  --surface-1: #f7f8fa;
+  --surface-2: #eff2f5;
+  --surface-3: #e6eaef;
+
+  --line: #e1e6ec;
+  --line-strong: #c7cfd8;
+
+  /* Institutional blue — a bank, not a landing page */
+  --brand-700: #073c6b;
+  --brand-600: #0b4f8a;
+  --brand-500: #0f63ab;
+  --brand-100: #e4eff8;
+  --focus: #3d86c6;
+
+  /* Semantic, deliberately desaturated */
+  --credit-600: #0c6b4f;
+  --credit-100: #e2f1ec;
+  --debit-600: #a31d24;
+  --debit-100: #fae8e9;
+  --warn-600: #8a5a00;
+  --warn-100: #fbf0dc;
+  --info-600: #0b4f8a;
+  --info-100: #e4eff8;
+
+  /* Type */
+  --font-sans: "Segoe UI Variable Text", "Segoe UI", Inter, system-ui,
+    -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+
+  --fs-11: 0.6875rem;
+  --fs-12: 0.75rem;
+  --fs-13: 0.8125rem;
+  --fs-14: 0.875rem;
+  --fs-16: 1rem;
+  --fs-20: 1.25rem;
+  --fs-26: 1.625rem;
+  --fs-32: 2rem;
+
+  --lh-tight: 1.25;
+  --lh-normal: 1.5;
+
+  /* 4px scale */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-8: 32px;
+  --s-10: 40px;
+  --s-14: 56px;
+
+  --r-1: 3px;
+  --r-2: 5px;
+  --r-3: 7px;
+  --r-full: 999px;
+
+  --shadow-1: 0 1px 2px rgba(16, 23, 32, 0.06), 0 1px 1px rgba(16, 23, 32, 0.04);
+  --shadow-2: 0 8px 24px rgba(16, 23, 32, 0.12), 0 2px 6px rgba(16, 23, 32, 0.06);
+
+  --shell-sidebar: 232px;
+  --shell-topbar: 56px;
+  --shell-max: 1280px;
+
+  --t-fast: 120ms ease-out;
+}
+
+/* Shipped in Phase 5. Components need no changes — they only read tokens. */
+[data-theme="dark"] {
+  --ink-900: #e8ecf1;
+  --ink-700: #c8d0da;
+  --ink-600: #a2adba;
+  --ink-400: #7b8694;
+  --ink-300: #5f6a78;
+
+  --surface-0: #151b23;
+  --surface-1: #0f141a;
+  --surface-2: #1c2430;
+  --surface-3: #273140;
+
+  --line: #26303c;
+  --line-strong: #37424f;
+
+  --brand-700: #7fb6e6;
+  --brand-600: #5c9fd8;
+  --brand-500: #4a8fc9;
+  --brand-100: #16293a;
+  --focus: #6aa9dd;
+
+  --credit-600: #4cb894;
+  --credit-100: #122b24;
+  --debit-600: #e2777c;
+  --debit-100: #2e1719;
+  --warn-600: #d3a44f;
+  --warn-100: #2b2213;
+  --info-600: #5c9fd8;
+  --info-100: #16293a;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 8px 24px rgba(0, 0, 0, 0.5);
+}

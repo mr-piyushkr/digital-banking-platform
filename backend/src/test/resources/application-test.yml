@@ -1,0 +1,22 @@
+# In-memory database so the test suite needs no running MySQL. Integration tests
+# that must prove real InnoDB row locking override this with the bankflow_test
+# schema from Phase 8 onwards.
+spring:
+  datasource:
+    url: jdbc:h2:mem:bankflow-test;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=TRUE
+    username: sa
+    password: ""
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+
+bankflow:
+  cors:
+    allowed-origins: http://localhost:5173
+
+logging:
+  level:
+    com.bankflow: INFO
+    org.hibernate.SQL: WARN

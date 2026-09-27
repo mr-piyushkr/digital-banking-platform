@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: bankflow
+
+  # Pulls the repo-root .env in as a property source. Both paths are optional so
+  # the app starts whether it is launched from the repo root or from backend/,
+  # and in containers/CI where real environment variables are used instead.
+  config:
+    import:
+      - optional:file:./.env[.properties]
+      - optional:file:../.env[.properties]
+
+  profiles:
+    default: dev
+
+  jackson:
+    default-property-inclusion: non_null
+    serialization:
+      write-dates-as-timestamps: false
+
+  mvc:
+    problemdetails:
+      enabled: true
+
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: never
+  compression:
+    enabled: true
+  shutdown: graceful
+
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: BankFlow
+    description: Digital banking and transaction platform
+    version: 0.1.0
+
+bankflow:
+  cors:
+    allowed-origins: http://localhost:5173,http://localhost:4173
+
+logging:
+  level:
+    com.bankflow: DEBUG
