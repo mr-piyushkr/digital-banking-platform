@@ -19,8 +19,11 @@ spring:
       write-dates-as-timestamps: false
 
   mvc:
+    # Off on purpose: GlobalExceptionHandler owns the error shape. With this
+    # enabled, Spring's ResponseEntityExceptionHandler also handles validation
+    # failures and wins, so clients would see two different error formats.
     problemdetails:
-      enabled: true
+      enabled: false
 
 server:
   port: 8080
