@@ -6,9 +6,15 @@ spring:
     password: ""
     driver-class-name: org.h2.Driver
 
+  # The migrations are MySQL-specific (InnoDB, BIT(1), DATETIME(6)), so on H2 the
+  # schema comes from the entities instead. This profile is an offline fallback
+  # only — dev and the test suite both run the real migrations on MySQL.
+  flyway:
+    enabled: false
+
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     open-in-view: false
     properties:
       hibernate:

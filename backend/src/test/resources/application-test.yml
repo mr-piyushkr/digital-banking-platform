@@ -1,15 +1,29 @@
-# In-memory database so the test suite needs no running MySQL. Integration tests
-# that must prove real InnoDB row locking override this with the bankflow_test
-# schema from Phase 8 onwards.
+# Integration tests run against real MySQL, on their own schema.
+#
+# H2 would be faster, but the behaviour these tests exist to prove — SELECT ...
+# FOR UPDATE row locking, unique-constraint violations on idempotency keys,
+# DECIMAL rounding — is InnoDB behaviour. Testing it on H2 would prove nothing.
+#
+# TestFlywayConfig drops and re-migrates the schema once per context, so every
+# run starts from an empty, freshly migrated database.
 spring:
   datasource:
-    url: jdbc:h2:mem:bankflow-test;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=TRUE
-    username: sa
-    password: ""
-    driver-class-name: org.h2.Driver
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${TEST_DB_NAME:bankflow_test}?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Kolkata&characterEncoding=utf8
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 8
+      minimum-idle: 1
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    clean-disabled: false
+
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: validate
     open-in-view: false
 
 bankflow:
@@ -20,3 +34,4 @@ logging:
   level:
     com.bankflow: INFO
     org.hibernate.SQL: WARN
+    org.flywaydb: INFO
