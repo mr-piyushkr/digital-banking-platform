@@ -1,11 +1,13 @@
 # 🏦 BankFlow — Digital Banking & Transaction Platform
 
 <p align="center">
-  <strong>A production-oriented full-stack digital banking platform built with Spring Boot, React, MySQL, Redis and Apache Kafka.</strong>
+  <strong>A full-stack digital banking platform built with Spring Boot, React, MySQL, Redis and Apache Kafka.</strong>
 </p>
 
 <p align="center">
-  Designed to demonstrate real-world banking workflows, secure authorization, transactional money movement, fraud detection, event-driven architecture, caching, rate limiting, testing, CI/CD and cloud deployment.
+  A secure, scalable and transaction-focused banking application featuring customer banking,
+  fund transfers, beneficiary management, fraud detection, audit logging, caching,
+  event-driven processing and administrative operations.
 </p>
 
 <p align="center">
@@ -14,84 +16,34 @@
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
 ![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-Authentication-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
+![Kafka](https://img.shields.io/badge/Apache_Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)
 
 </p>
 
 <p align="center">
 
 ![Spring Security](https://img.shields.io/badge/Spring_Security-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
-![Kafka](https://img.shields.io/badge/Apache_Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
 
 </p>
 
 ---
 
-## 📌 Project Overview
+## 📖 About The Project
 
-**BankFlow** is a full-stack digital banking and transaction platform designed around realistic banking operations rather than a simple CRUD application.
+**BankFlow** is a full-stack digital banking and transaction management platform designed to simulate real-world banking workflows and backend engineering practices.
 
-The platform provides customer banking operations such as:
+The platform provides customers with secure access to banking services including account management, deposits, withdrawals, fund transfers, beneficiary management, transaction history and account statements.
 
-- User registration and authentication
-- JWT-based authorization
-- Savings and current accounts
-- Account balances
-- Deposits
-- Withdrawals
-- Fund transfers
-- Beneficiary management
-- Transaction history
-- Account statements
-- User profile management
-- Notifications
+The platform also provides administrative capabilities for managing users and accounts, monitoring transactions, reviewing suspicious activity and maintaining audit records.
 
-It also includes an administration layer for:
+The backend is built using **Java, Spring Boot, Spring Security, Spring Data JPA and Hibernate**, while the frontend uses **React, React Router, Axios and plain CSS3**.
 
-- User management
-- Account management
-- Account blocking/unblocking/freezing
-- Transaction monitoring
-- Fraud review
-- Audit logs
-- Banking dashboard
-- Role-based access control
-
-The planned architecture extends the platform with **Redis caching and rate limiting**, **Apache Kafka event-driven processing**, automated testing, Docker, CI/CD and cloud deployment.
-
-The architecture and infrastructure decisions are documented in `BLUEPRINT.md`, while the frontend design rules are documented in `DESIGN.md`.
-
----
-
-# 🚦 Current Project Status
-
-The project is being developed incrementally. Every phase is intended to leave the application in a runnable state.
-
-### Current Progress
-
-| Phase | Description | Status |
-|---|---|---|
-| 1 | Project Scaffold + Design System + Health Check | ✅ Complete |
-| 2 | JPA Entities + Flyway + Repositories | ✅ Complete |
-| 3 | Spring Security + JWT + RBAC | ✅ Complete |
-| 4 | Accounts + Deposits + Withdrawals + Transfers + Beneficiaries + Statements | ✅ Complete |
-| 5 | Complete React Customer/Admin UI | 🔜 Next |
-| 6 | Redis Caching + Rate Limiting | ⏳ Pending |
-| 7 | Apache Kafka + Event Consumers | ⏳ Pending |
-| 8 | Full Testing + JaCoCo | ⏳ Pending |
-| 9 | Docker + Docker Compose | ⏳ Pending |
-| 10 | GitHub Actions CI/CD | ⏳ Pending |
-| 11 | Cloud Deployment | ⏳ Pending |
-| 12 | Swagger + ER Diagram + Postman + Final Documentation | ⏳ Pending |
-
-### Current Milestone
-
-**Completed through Phase 4 — Banking Operations Backend**
-
-The next major milestone is **Phase 5 — Complete React Customer & Admin Interface**.
+The system uses **MySQL** as the primary relational database, **Redis** for caching, rate limiting and token management, and **Apache Kafka** for asynchronous event processing.
 
 ---
 
@@ -99,196 +51,411 @@ The next major milestone is **Phase 5 — Complete React Customer & Admin Interf
 
 ## 🔐 Authentication & Authorization
 
-- User registration
-- Secure login
-- BCrypt password hashing
-- JWT access tokens
-- Refresh token flow
-- Logout support
-- Role-based authorization
-- Method-level authorization with `@PreAuthorize`
+- Secure user registration
+- JWT-based authentication
+- Access and refresh token mechanism
+- Secure password hashing using BCrypt
+- Token refresh support
+- Logout and refresh-token revocation
+- Role-based access control
+- Method-level authorization
 - Account ownership validation
-- Protected customer endpoints
-- Protected admin endpoints
-- Auditor read-only access model
-- Separation of customer and administrative responsibilities
+- Protected API endpoints
+- Separate customer, admin and auditor permissions
 
 ---
 
 ## 👤 Customer Banking
 
-- Customer profile
-- Profile update
-- Password change
-- Account opening
-- Savings account support
-- Current account support
-- Account balance management
-- Account details
-- Account number generation
-- Account status handling
+Customers can:
+
+- Register and authenticate
+- Manage their profile
+- Change passwords
+- Open bank accounts
+- View account details
+- View account balances
+- Manage savings accounts
+- Manage current accounts
+- Deposit funds
+- Withdraw funds
+- Transfer funds
+- Manage beneficiaries
+- View transaction history
+- View transaction details
+- Generate account statements
+- View notifications
 
 ---
 
-## 💰 Money Movement
+## 🏦 Account Management
 
-### Deposit
+The platform supports:
 
-- Deposit money into an account
+- Savings accounts
+- Current accounts
+- Unique account number generation
+- Account status management
+- Active accounts
+- Blocked accounts
+- Frozen accounts
+- Account balance tracking
+- Account ownership validation
+
+---
+
+## 💰 Deposits & Withdrawals
+
+### Deposits
+
+- Secure deposit workflow
 - Transaction creation
 - Transaction reference generation
-- Idempotency support
-- Transaction status tracking
+- Balance updates
+- Idempotency protection
+- Transaction status management
+- Database transaction boundaries
 
-### Withdrawal
+### Withdrawals
 
-- Withdraw money from an account
+- Secure withdrawal workflow
 - Insufficient balance validation
 - Account status validation
-- Idempotency support
-- Transaction history
-
-### Transfer
-
-- Account-to-account transfers
-- Own-account transfers
-- Beneficiary-based transfers
-- Verified beneficiary requirement
-- Balance validation
-- Daily transfer limits
 - Transaction creation
-- Idempotency support
-- Deterministic account locking
+- Idempotency protection
+- Balance consistency
+- Concurrent withdrawal protection
+
+---
+
+## 💸 Fund Transfers
+
+BankFlow supports secure account-to-account transfers.
+
+Features include:
+
+- Own-account transfers
+- Beneficiary transfers
+- Beneficiary verification
+- Balance validation
+- Blocked account validation
+- Transaction limits
+- Idempotency keys
+- Transaction references
+- Atomic debit and credit operations
+- Pessimistic locking
+- Deterministic account lock ordering
 - Deadlock prevention
+
+Money transfers are executed inside transactional boundaries to maintain account consistency.
 
 ---
 
 ## 👥 Beneficiary Management
 
-- Add beneficiary
-- List beneficiaries
-- Verify beneficiary
-- Delete beneficiary
+Customers can:
+
+- Add beneficiaries
+- View beneficiaries
+- Verify beneficiaries
+- Delete beneficiaries
+- Assign beneficiary nicknames
+- Store bank account information
 - Prevent duplicate beneficiaries
-- Prevent adding own account as beneficiary
-- Require verification before external transfers
+- Prevent invalid self-beneficiary configurations
+
+A beneficiary must satisfy the required verification rules before being used for transfers.
 
 ---
 
 ## 📊 Transaction Management
 
+BankFlow provides detailed transaction management including:
+
 - Transaction references
 - Transaction types
-- Transaction statuses
-- Transaction history
+- Transaction status
+- Transaction amount
+- Source account
+- Destination account
+- Balance after transaction
+- Transaction description
+- Idempotency key
+- Creation timestamp
 - Pagination
-- Account-specific transaction history
+- Filtering
 - Transaction detail lookup
-- Idempotency keys
-- Balance-after tracking
 
 ---
 
 ## 📄 Account Statements
 
-- Account-specific statements
-- Date-range filtering
-- Opening balance calculation
+Customers can generate account statements using date ranges.
+
+Statements include:
+
+- Account information
+- Opening balance
 - Closing balance
-- Credit totals
-- Debit totals
+- Total credits
+- Total debits
 - Transaction count
-- Maximum statement range validation
+- Transaction details
+- Date-range filtering
+
+Statement data can be generated in downloadable formats such as PDF and CSV.
 
 ---
 
-## 🛡️ Security
+# 🧑‍💼 Administration
 
-BankFlow uses multiple authorization layers:
+BankFlow provides dedicated administrative operations.
 
-1. URL-level authorization
-2. Method-level authorization
-3. Account ownership checks
-4. Repository-level user scoping
-5. JWT authentication
-6. BCrypt password hashing
+### User Management
 
-The architecture intentionally prevents customers from accessing another customer's account.
+- View users
+- Search users
+- Paginate users
+- View user details
+- Enable users
+- Disable users
+
+### Account Management
+
+- View all accounts
+- Search accounts
+- Filter accounts
+- Block accounts
+- Unblock accounts
+- Freeze accounts
+- Monitor account status
+
+### Transaction Monitoring
+
+- View transactions
+- Search transactions
+- Filter by transaction status
+- Filter by amount
+- Filter by date
+- Filter by account
+- Review flagged transactions
+- Reverse eligible failed/stuck transactions
+
+### Audit Monitoring
+
+- View audit logs
+- Track actor information
+- Track actions
+- Track affected entities
+- Store request IP
+- Store user-agent information
+- Maintain event history
+
+### Dashboard
+
+The administration dashboard provides information such as:
+
+- Total users
+- Total accounts
+- Transaction count
+- Transaction volume
+- Failed transactions
+- Flagged transactions
 
 ---
 
-## 🧑‍💼 Admin Operations
+# 🕵️ Fraud Detection
 
-The planned admin console supports:
+BankFlow includes rule-based fraud detection.
 
-- User listing
-- User search
-- User detail
-- Enable/disable users
-- Account listing
-- Account filtering
-- Account status management
-- Transaction monitoring
-- Transaction filtering
-- Fraud flag review
-- Audit log viewing
-- Dashboard statistics
+Fraud rules include scenarios such as:
 
-Administrative operations deliberately do not allow staff to perform customer money movement.
+- High-value transactions
+- Excessive transaction velocity
+- Transfers involving newly added beneficiaries
+- Suspicious transaction patterns
 
----
-
-## 🕵️ Fraud Detection
-
-BankFlow includes a fraud-screening design based on configurable rules.
-
-Current fraud service logic includes:
-
-- High-value transaction detection
-- Transaction velocity detection
-- Large transfer to recently added beneficiary
-- Transaction flagging
-- Fraud reason tracking
-- Admin review flow
-
-The planned Kafka architecture will process fraud events asynchronously.
-
----
-
-# 🧠 Important Engineering Concepts
-
-BankFlow is designed to demonstrate more than basic CRUD development.
-
-### 🔒 Pessimistic Locking
-
-Money movement uses database row locking to protect balances during concurrent transactions.
-
-```sql
-SELECT ... FOR UPDATE
-```
-
-### 🔁 Idempotency
-
-Every money-moving request can carry an idempotency key.
-
-This prevents retries from accidentally creating duplicate financial transactions.
-
-### 🔀 Deterministic Lock Ordering
-
-Transfers lock source and destination accounts in ascending account-ID order.
-
-This prevents the classic:
+Transactions meeting configured fraud rules can be marked as:
 
 ```text
-Account A → Account B
-Account B → Account A
+FLAGGED
 ```
 
-deadlock scenario.
+The flagged transaction can then be reviewed through administrative monitoring.
 
-### 💵 BigDecimal
+Redis is used to maintain short-lived transaction velocity information, while Kafka enables asynchronous fraud-event processing.
 
-Financial amounts use:
+---
+
+# 📝 Audit Logging
+
+Important banking operations are designed to produce audit information.
+
+Audit records can contain:
+
+- Actor/user
+- Action
+- Entity type
+- Entity ID
+- Event details
+- IP address
+- User-agent
+- Timestamp
+
+This provides traceability for security-sensitive operations.
+
+---
+
+# 🔔 Notifications
+
+The notification system supports in-application notifications for important banking events.
+
+Examples include:
+
+- Account events
+- Transaction events
+- Fraud alerts
+- Beneficiary-related events
+- Administrative account status changes
+
+Kafka consumers can independently process notification events without blocking the main transaction workflow.
+
+---
+
+# ⚡ Redis
+
+Redis is used as a high-speed supporting data store.
+
+### Redis Responsibilities
+
+- Account caching
+- User profile caching
+- Transaction status caching
+- Refresh-token storage
+- Refresh-token revocation
+- API rate limiting
+- Fraud velocity tracking
+
+### Example Keyspace
+
+```text
+account:{id}
+user:profile:{id}
+txn:status:{reference}
+rl:{userOrIp}:{route}
+refresh:{jti}
+fraud:velocity:{accountId}
+```
+
+### Cache Strategy
+
+Account data is cached for frequently accessed operations and invalidated whenever balance-changing operations occur.
+
+---
+
+# 📨 Apache Kafka
+
+Kafka provides the event-driven communication layer.
+
+### Event Topics
+
+```text
+transaction.created
+transaction.flagged
+account.status.changed
+user.registered
+```
+
+### Consumer Groups
+
+```text
+audit-group
+fraud-group
+notification-group
+```
+
+A single event can therefore be processed independently by multiple consumers.
+
+```text
+                    ┌─────────────────┐
+                    │ Transaction API │
+                    └────────┬────────┘
+                             │
+                             ▼
+                     transaction.created
+                             │
+                             ▼
+                       ┌───────────┐
+                       │   Kafka   │
+                       └─────┬─────┘
+                             │
+             ┌───────────────┼───────────────┐
+             ▼               ▼               ▼
+       Audit Consumer   Fraud Consumer   Notification
+             │               │               │
+             ▼               ▼               ▼
+           MySQL           MySQL            MySQL
+```
+
+Kafka consumers are designed to support idempotent processing because Kafka provides at-least-once delivery semantics.
+
+---
+
+# 🔒 Security Architecture
+
+BankFlow uses defence-in-depth authorization.
+
+### Security Layers
+
+```text
+Request
+   │
+   ▼
+Rate Limit
+   │
+   ▼
+JWT Authentication
+   │
+   ▼
+SecurityFilterChain
+   │
+   ▼
+Controller
+   │
+   ▼
+@PreAuthorize
+   │
+   ▼
+Service Layer
+   │
+   ▼
+Ownership Guard
+   │
+   ▼
+Repository
+```
+
+### Security Features
+
+- JWT authentication
+- BCrypt password hashing
+- Role-based authorization
+- Method-level authorization
+- Ownership checks
+- Protected admin APIs
+- Refresh-token revocation
+- Least-privilege database user
+- Input validation
+- Global exception handling
+- Secure transaction processing
+
+---
+
+# 🧠 Engineering Practices
+
+## 💵 BigDecimal for Money
+
+Financial values use:
 
 ```java
 BigDecimal
@@ -296,90 +463,120 @@ BigDecimal
 
 instead of floating-point types.
 
-The database model uses:
+Database amounts use:
 
 ```text
 DECIMAL(19,4)
 ```
 
-### 🗃️ Flyway
-
-Database schema changes are version controlled using Flyway migrations.
-
-Hibernate is not responsible for automatically modifying the production schema.
-
-### 🔐 Defence in Depth
-
-Authorization is enforced at multiple levels instead of trusting only a frontend check or URL rule.
+This prevents common floating-point precision problems in financial calculations.
 
 ---
 
-# 🏗️ Architecture
+## 🔁 Idempotency
+
+Money-moving operations support idempotency keys.
+
+Example:
+
+```http
+Idempotency-Key: 7f9d3e1a-transaction
+```
+
+If a client retries the same request, the system can recognize the previous operation and prevent duplicate financial processing.
+
+---
+
+## 🔐 Pessimistic Locking
+
+Concurrent balance operations use database row locking.
+
+```sql
+SELECT ... FOR UPDATE
+```
+
+This prevents concurrent requests from incorrectly modifying the same balance.
+
+---
+
+## 🔀 Deterministic Lock Ordering
+
+For transfers involving two accounts, account rows are locked in deterministic order.
+
+This reduces the possibility of deadlocks when two accounts simultaneously transfer money to each other.
+
+---
+
+## 🗃️ Database Migrations
+
+Flyway manages database schema changes.
+
+The application does not rely on Hibernate automatically modifying the database schema.
+
+---
+
+# 🏗️ System Architecture
 
 ```text
-                         ┌──────────────────────┐
+                         ┌─────────────────────┐
                          │      React 19        │
                          │   Vite + Axios       │
-                         └──────────┬───────────┘
+                         └──────────┬──────────┘
                                     │
                               HTTPS / JSON
                                     │
                                     ▼
-                         ┌──────────────────────┐
-                         │    Spring Boot 3.5   │
-                         │       Java 21        │
-                         └──────────┬───────────┘
+                         ┌─────────────────────┐
+                         │    Spring Boot      │
+                         │       Java 21       │
+                         └──────────┬──────────┘
                                     │
-                  ┌─────────────────┼─────────────────┐
-                  │                 │                 │
-                  ▼                 ▼                 ▼
-             Controllers        Services          Security
-                  │                 │                 │
-                  │          @Transactional       JWT/RBAC
-                  │                 │
-                  ▼                 ▼
-             DTO / Mapper       Repositories
-                                    │
-                                    ▼
-                              Hibernate / JPA
+               ┌────────────────────┼────────────────────┐
+               │                    │                    │
+               ▼                    ▼                    ▼
+        Controllers             Security             Services
+               │                    │                    │
+               │                 JWT/RBAC         Business Logic
+               │                                         │
+               └────────────────────┬────────────────────┘
                                     │
                                     ▼
-                              ┌────────────┐
-                              │   MySQL 8   │
-                              └────────────┘
+                              Spring Data JPA
+                                    │
+                                    ▼
+                                Hibernate
+                                    │
+                                    ▼
+                                MySQL 8
 
-       Planned Event-Driven Architecture
-       
-                              ┌────────────┐
-                              │    Kafka   │
-                              └─────┬──────┘
-                                    │
-                ┌───────────────────┼───────────────────┐
-                ▼                   ▼                   ▼
-          Audit Consumer      Fraud Consumer     Notification
-                                                    Consumer
+                  ┌─────────────────┴─────────────────┐
+                  │                                   │
+                  ▼                                   ▼
+                Redis                               Kafka
+                  │                                   │
+          Cache / Rate Limit              Audit / Fraud / Notification
 ```
 
 ---
 
-# 🧩 Technology Stack
+# 🛠️ Technology Stack
 
 ## ☕ Backend
 
-<p>
+<p align="center">
 <img src="https://skillicons.dev/icons?i=java,spring,maven" />
 </p>
 
 | Technology | Purpose |
 |---|---|
-| Java 21 | Backend programming language |
+| Java 21 | Backend development |
 | Spring Boot 3.5 | Application framework |
 | Spring MVC | REST API development |
 | Spring Security | Authentication & authorization |
-| JWT | Stateless authentication |
-| Spring Data JPA | Persistence layer |
+| JWT | Token-based authentication |
+| Spring Data JPA | Persistence abstraction |
 | Hibernate | ORM |
-| Flyway | Database migrations |
+| Flyway | Database migration |
 | Maven | Build management |
 | Lombok | Boilerplate reduction |
 
@@ -387,95 +584,104 @@ Authorization is enforced at multiple levels instead of trusting only a frontend
 
 ## ⚛️ Frontend
 
-<p>
-<img src="https://skillicons.dev/icons?i=react,vite,css,js,html" />
+<p align="center">
+<img src="https://skillicons.dev/icons?i=react,vite,js,html,css" />
 </p>
 
 | Technology | Purpose |
 |---|---|
-| React 19 | UI framework |
-| React Router 7 | Client-side routing |
-| Axios | HTTP client |
-| Vite | Frontend build tool |
-| JavaScript | Frontend language |
+| React 19 | Frontend framework |
+| React Router | Application routing |
+| Axios | API communication |
+| Vite | Frontend tooling |
+| JavaScript | Application development |
+| HTML5 | Structure |
 | CSS3 | Styling |
-| Lucide React | UI icons |
-
-The frontend intentionally uses **plain CSS with design tokens** rather than Tailwind or a utility CSS framework.
+| Lucide React | Interface icons |
 
 ---
 
 ## 🗄️ Database
 
-<p>
+<p align="center">
 <img src="https://skillicons.dev/icons?i=mysql" />
 </p>
 
 | Technology | Purpose |
 |---|---|
-| MySQL 8 | Primary relational database |
-| JPA | Persistence abstraction |
+| MySQL 8 | Primary database |
+| JPA | Persistence API |
 | Hibernate | ORM |
-| Flyway | Schema versioning |
-| H2 | Offline/test fallback |
+| Flyway | Database migrations |
+| H2 | Local fallback/testing |
 
 ---
 
-## ⚡ Caching & Rate Limiting
+## ⚡ Cache & Performance
 
-<p>
+<p align="center">
 <img src="https://skillicons.dev/icons?i=redis" />
 </p>
 
-### Planned
-
-- Redis account caching
-- User profile caching
-- Transaction status caching
-- Refresh token storage/revocation
-- Sliding-window rate limiting
+- Redis
+- Spring Cache
+- Cache-aside strategy
+- Cache invalidation
+- Rate limiting
+- Refresh-token storage
 - Fraud velocity tracking
-- Cache eviction after balance-changing operations
 
 ---
 
-## 📨 Event-Driven Messaging
+## 📨 Messaging
 
-<p>
+<p align="center">
 <img src="https://skillicons.dev/icons?i=kafka" />
 </p>
 
-### Planned
+- Apache Kafka
+- Kafka producers
+- Kafka consumers
+- Consumer groups
+- Event-driven processing
+- Idempotent consumers
+- Retry handling
+- Dead-letter topics
 
-Apache Kafka will handle:
+---
 
-- Transaction events
-- Fraud events
-- Audit events
-- Notification events
-- Dead-letter processing
-- Independent consumer groups
-- Idempotent event processing
+## 🧪 Testing
+
+<p align="center">
+<img src="https://skillicons.dev/icons?i=java" />
+</p>
+
+- JUnit 5
+- Mockito
+- Spring Boot Test
+- Spring Security Test
+- Web MVC testing
+- Integration testing
+- Embedded Kafka
+- Concurrency testing
+- JaCoCo
 
 ---
 
 ## 🐳 DevOps & CI/CD
 
-<p>
-<img src="https://skillicons.dev/icons?i=docker,githubactions,linux,git,github" />
+<p align="center">
+<img src="https://skillicons.dev/icons?i=docker,githubactions,git,github,linux" />
 </p>
-
-### Planned
 
 - Docker
 - Docker Compose
 - Multi-stage Docker builds
+- Git
+- GitHub
 - GitHub Actions
 - GitHub Container Registry
-- Automated backend tests
-- Frontend lint/build
-- Container image publishing
-- Deployment automation
+- Linux
 
 ---
 
@@ -492,10 +698,13 @@ bankflow/
 │       │   ├── java/com/bankflow/
 │       │   │
 │       │   ├── config/
+│       │   │   ├── SecurityConfig.java
 │       │   │   ├── CorsConfig.java
 │       │   │   ├── JpaAuditingConfig.java
-│       │   │   ├── SecurityConfig.java
-│       │   │   └── StaffAccountSeeder.java
+│       │   │   ├── RedisConfig.java
+│       │   │   ├── KafkaTopicConfig.java
+│       │   │   ├── OpenApiConfig.java
+│       │   │   └── AsyncConfig.java
 │       │   │
 │       │   ├── controller/
 │       │   │   ├── AuthController.java
@@ -504,8 +713,6 @@ bankflow/
 │       │   │   ├── TransactionController.java
 │       │   │   ├── BeneficiaryController.java
 │       │   │   ├── StatementController.java
-│       │   │   ├── NotificationController.java
-│       │   │   ├── HealthController.java
 │       │   │   │
 │       │   │   └── admin/
 │       │   │       ├── AdminUserController.java
@@ -516,7 +723,8 @@ bankflow/
 │       │   │
 │       │   ├── dto/
 │       │   │   ├── request/
-│       │   │   └── response/
+│       │   │   ├── response/
+│       │   │   └── mapper/
 │       │   │
 │       │   ├── entity/
 │       │   │   ├── User.java
@@ -529,19 +737,25 @@ bankflow/
 │       │   │   └── enums/
 │       │   │
 │       │   ├── exception/
+│       │   │   ├── GlobalExceptionHandler.java
 │       │   │   ├── BusinessException.java
 │       │   │   ├── ErrorCode.java
-│       │   │   ├── GlobalExceptionHandler.java
-│       │   │   ├── AccountBlockedException.java
+│       │   │   ├── ResourceNotFoundException.java
 │       │   │   ├── InsufficientBalanceException.java
-│       │   │   ├── DuplicateResourceException.java
-│       │   │   └── ResourceNotFoundException.java
+│       │   │   ├── AccountBlockedException.java
+│       │   │   └── DuplicateResourceException.java
 │       │   │
 │       │   ├── kafka/
-│       │   │   ├── DomainEventBridge.java
+│       │   │   ├── producer/
 │       │   │   ├── consumer/
-│       │   │   ├── event/
-│       │   │   └── producer/
+│       │   │   └── event/
+│       │   │
+│       │   ├── redis/
+│       │   │   ├── CacheKeys.java
+│       │   │   ├── RateLimitService.java
+│       │   │   ├── RateLimitFilter.java
+│       │   │   ├── RefreshTokenStore.java
+│       │   │   └── AccountCacheService.java
 │       │   │
 │       │   ├── repository/
 │       │   │
@@ -551,7 +765,7 @@ bankflow/
 │       │   │   ├── CustomUserDetails.java
 │       │   │   ├── CustomUserDetailsService.java
 │       │   │   ├── AccountGuard.java
-│       │   │   └── RefreshTokenStore.java
+│       │   │   └── RestAccessDeniedHandler.java
 │       │   │
 │       │   ├── service/
 │       │   │   ├── AuthService.java
@@ -574,12 +788,8 @@ bankflow/
 │       │   ├── application-local.yml
 │       │   └── db/
 │       │       └── migration/
-│       │           ├── V1__init.sql
-│       │           └── V2__seed_roles.sql
 │       │
 │       └── test/
-│           ├── java/
-│           └── resources/
 │
 ├── frontend/
 │   ├── package.json
@@ -593,42 +803,55 @@ bankflow/
 │       │   ├── accountApi.js
 │       │   ├── txnApi.js
 │       │   ├── beneficiaryApi.js
-│       │   ├── notificationApi.js
 │       │   └── adminApi.js
 │       │
 │       ├── auth/
 │       │   ├── AuthContext.jsx
 │       │   ├── ProtectedRoute.jsx
 │       │   ├── RoleRoute.jsx
-│       │   ├── tokenStore.js
 │       │   └── useAuth.js
 │       │
 │       ├── components/
-│       │   ├── Button.jsx
-│       │   ├── Card.jsx
-│       │   ├── Field.jsx
-│       │   ├── Notice.jsx
-│       │   ├── PageLoader.jsx
-│       │   ├── SkeletonRows.jsx
-│       │   └── StatusBadge.jsx
+│       │   ├── Navbar
+│       │   ├── Sidebar
+│       │   ├── Card
+│       │   ├── DataTable
+│       │   ├── Pagination
+│       │   ├── Modal
+│       │   ├── AmountInput
+│       │   ├── StatusBadge
+│       │   ├── Loader
+│       │   ├── Toast
+│       │   ├── ErrorBoundary
+│       │   └── ConfirmDialog
+│       │
+│       ├── pages/
+│       │   ├── auth/
+│       │   ├── customer/
+│       │   └── admin/
+│       │
+│       ├── routes/
+│       │   └── AppRoutes.jsx
 │       │
 │       ├── styles/
 │       │   ├── tokens.css
-│       │   ├── global.css
-│       │   └── components.css
+│       │   └── global.css
 │       │
-│       ├── utils/
-│       │   ├── formatMoney.js
-│       │   └── formatDate.js
-│       │
-│       ├── App.jsx
-│       ├── App.css
-│       └── main.jsx
+│       └── utils/
+│           ├── formatMoney.js
+│           ├── formatDate.js
+│           └── validators.js
 │
 ├── db/
 │   └── init/
 │       └── 01_create_database_and_user.sql
 │
+├── .github/
+│   └── workflows/
+│       └── ci.yml
+│
+├── docker-compose.yml
+├── .dockerignore
 ├── .env.example
 ├── .gitignore
 ├── BLUEPRINT.md
@@ -638,48 +861,7 @@ bankflow/
 
 ---
 
-# 🗃️ Database Design
-
-BankFlow uses a relational MySQL schema.
-
-### Core Entities
-
-```text
-users
-roles
-user_roles
-accounts
-beneficiaries
-transactions
-audit_logs
-notifications
-```
-
-### Relationships
-
-```text
-User
- │
- ├── User Roles ─── Role
- │
- ├── Accounts
- │     │
- │     └── Transactions
- │
- ├── Beneficiaries
- │
- └── Notifications
-```
-
----
-
 # 🔌 API Modules
-
-Base URL:
-
-```text
-/api
-```
 
 ## ❤️ Health
 
@@ -703,9 +885,9 @@ POST /api/auth/logout
 ## 👤 User
 
 ```http
-GET    /api/users/me
-PUT    /api/users/me
-POST   /api/users/me/change-password
+GET  /api/users/me
+PUT  /api/users/me
+POST /api/users/me/change-password
 ```
 
 ---
@@ -730,12 +912,6 @@ POST /api/transactions/transfer
 
 GET /api/transactions/account/{accountId}
 GET /api/transactions/{reference}
-```
-
-Money-moving requests support an idempotency header:
-
-```http
-Idempotency-Key: <unique-request-key>
 ```
 
 ---
@@ -775,9 +951,9 @@ POST /api/notifications/mark-all-read
 
 ---
 
-# 🧑‍💼 Admin APIs
+## 🧑‍💼 Admin APIs
 
-## Users
+### Users
 
 ```http
 GET  /api/admin/users
@@ -786,14 +962,14 @@ POST /api/admin/users/{userId}/enable
 POST /api/admin/users/{userId}/disable
 ```
 
-## Accounts
+### Accounts
 
 ```http
 GET  /api/admin/accounts
 POST /api/admin/accounts/{accountId}/status
 ```
 
-## Transactions
+### Transactions
 
 ```http
 GET  /api/admin/transactions
@@ -801,13 +977,13 @@ GET  /api/admin/transactions/{reference}
 POST /api/admin/transactions/{reference}/clear-flag
 ```
 
-## Audit Logs
+### Audit Logs
 
 ```http
 GET /api/admin/audit-logs
 ```
 
-## Dashboard
+### Dashboard
 
 ```http
 GET /api/admin/dashboard
@@ -815,120 +991,258 @@ GET /api/admin/dashboard
 
 ---
 
-# 👮 Roles & Permissions
+# 🗄️ Database Design
 
-BankFlow defines three primary roles.
+BankFlow uses MySQL as the primary relational database.
 
-| Role | Purpose |
-|---|---|
-| `ROLE_CUSTOMER` | Normal banking customer |
-| `ROLE_ADMIN` | Bank operations/admin staff |
-| `ROLE_AUDITOR` | Read-only monitoring and audit access |
+### Core Tables
 
-### Customer
+```text
+users
+roles
+user_roles
+accounts
+beneficiaries
+transactions
+audit_logs
+notifications
+```
 
-Can:
+### User
 
-- Manage own profile
-- Open accounts
-- View own accounts
-- Deposit
-- Withdraw
-- Transfer
-- Manage beneficiaries
-- View transaction history
-- Generate statements
-- View notifications
+```text
+id
+first_name
+last_name
+email
+phone
+password_hash
+enabled
+address
+city
+state
+pincode
+kyc_status
+created_at
+updated_at
+```
 
-Cannot access another customer's account.
+### Account
 
-### Admin
+```text
+id
+account_number
+user_id
+type
+status
+balance
+currency
+opened_at
+version
+```
 
-Can:
+### Transaction
 
-- Manage users
-- Manage account status
-- Monitor transactions
-- Review flagged transactions
-- View audit logs
-- View dashboard information
+```text
+id
+reference
+type
+status
+amount
+from_account_id
+to_account_id
+balance_after
+description
+idempotency_key
+created_at
+```
 
-Admins deliberately do not perform customer deposits, withdrawals or transfers.
+### Beneficiary
 
-### Auditor
+```text
+id
+owner_user_id
+beneficiary_account_number
+nickname
+bank_ifsc
+verified
+created_at
+```
 
-Read-only access for:
+### Audit Log
 
-- Transaction monitoring
-- Audit information
+```text
+id
+actor_user_id
+action
+entity_type
+entity_id
+details
+ip_address
+user_agent
+created_at
+```
 
-No mutation endpoints.
+### Notification
+
+```text
+id
+user_id
+title
+message
+channel
+read_flag
+created_at
+```
 
 ---
 
-# 🎨 Frontend Design System
+# 🧪 Testing Strategy
 
-The frontend follows a banking-oriented enterprise design rather than a generic template.
+BankFlow uses multiple testing layers.
 
-### Design Principles
-
-- Institutional banking visual language
-- No decorative gradients
-- No glassmorphism
-- No neon effects
-- No excessive rounded cards
-- No unnecessary illustrations
-- Data-focused layouts
-- Dense financial tables
-- Clear status indicators
-- Accessible interactions
-- Plain CSS with design tokens
-
-### Financial Formatting
-
-All monetary values use Indian number formatting:
+### Unit Testing
 
 ```text
-₹1,50,000.00
+JUnit 5
+Mockito
 ```
 
-Account numbers and transaction references use monospace formatting.
+Tests cover:
 
-Example:
+- Authentication
+- Account operations
+- Deposits
+- Withdrawals
+- Transfers
+- Idempotency
+- Beneficiary rules
+- Fraud rules
+- Rate limiting
+
+### Web Testing
 
 ```text
-ACC0 0000 0001
+@WebMvcTest
+Spring Security Test
 ```
 
-### Accessibility
+Validates:
 
-The UI is designed around:
+- Request validation
+- Authentication
+- Authorization
+- HTTP status codes
+- API response structures
 
-- WCAG AA contrast
-- Keyboard focus states
-- Semantic tables
-- Proper labels
-- Focus-trapped dialogs
-- Accessible loading states
-- Accessible notifications
+### Integration Testing
 
-### Dark Mode
+```text
+@SpringBootTest
+MySQL
+Flyway
+```
 
-Dark mode is implemented through CSS design tokens and theme variables.
+Tests:
+
+- Real database persistence
+- Transaction workflows
+- Account locking
+- Deposit/withdrawal consistency
+- Transfer consistency
+
+### Kafka Testing
+
+```text
+Embedded Kafka
+spring-kafka-test
+```
+
+Tests:
+
+- Event publishing
+- Consumer processing
+- Consumer groups
+- Event idempotency
+- Post-commit event behavior
+
+### Concurrency Testing
+
+Concurrent transactions are used to verify that multiple withdrawals cannot incorrectly overdraw an account.
 
 ---
 
-# ⚙️ Environment Profiles
+# 🐳 Docker
 
-BankFlow uses environment-specific Spring profiles.
+The Docker environment contains the complete application infrastructure.
 
-| Profile | Database | Cache/Broker | Purpose |
-|---|---|---|---|
-| `dev` | Local MySQL 8 | Managed Redis + Kafka | Work/development environment |
-| `docker` | MySQL in Docker | Redis + Kafka in Docker | Full local infrastructure |
-| `local` | H2 | In-memory | Offline fallback |
+```text
+┌─────────────────────────────────────────────┐
+│              Docker Compose                 │
+│                                             │
+│  ┌─────────┐   ┌─────────┐   ┌─────────┐ │
+│  │ MySQL   │   │  Redis  │   │  Kafka  │ │
+│  └─────────┘   └─────────┘   └─────────┘ │
+│                                             │
+│  ┌─────────┐   ┌─────────┐                 │
+│  │ Backend │   │ Frontend│                 │
+│  └─────────┘   └─────────┘                 │
+│                                             │
+└─────────────────────────────────────────────┘
+```
 
-The important design principle is that infrastructure configuration is externalized through environment variables.
+Docker configuration includes:
+
+- Backend multi-stage build
+- Frontend build
+- MySQL
+- Redis
+- Kafka
+- Kafka UI
+- Health checks
+- Service dependencies
+- Environment-based configuration
+
+---
+
+# 🔄 CI/CD
+
+GitHub Actions automates the project's build and verification workflow.
+
+The CI pipeline includes:
+
+### Backend
+
+```text
+JDK 21
+Maven
+Unit Tests
+Integration Tests
+MySQL
+Redis
+JaCoCo
+```
+
+### Frontend
+
+```text
+Node.js
+npm ci
+Lint
+Production Build
+```
+
+### Container Workflow
+
+```text
+Build Docker Images
+        │
+        ▼
+GitHub Container Registry
+        │
+        ▼
+Deployment Workflow
+```
 
 ---
 
@@ -947,7 +1261,7 @@ Git
 
 ---
 
-## 1. Clone Repository
+## Clone Repository
 
 ```bash
 git clone https://github.com/mr-piyushkr/bankflow.git
@@ -956,61 +1270,40 @@ cd bankflow
 
 ---
 
-## 2. Configure Environment
-
-Copy:
+## Environment Configuration
 
 ```bash
 cp .env.example .env
 ```
 
-Configure:
+Configure the required environment variables:
 
 ```env
 DB_PASSWORD=your_database_password
 JWT_SECRET=your_jwt_secret
 ```
 
-Never commit the real `.env` file.
+Never commit real secrets to Git.
 
 ---
 
-## 3. Create Database
+## Database Setup
 
-The project includes:
-
-```text
-db/init/01_create_database_and_user.sql
-```
-
-Run:
+Run the database initialization script:
 
 ```bash
 mysql -u root -p < db/init/01_create_database_and_user.sql
 ```
 
-The script creates:
-
-```text
-bankflow
-bankflow_test
-```
-
-and a dedicated application user:
-
-```text
-bankflow_app
-```
-
-The application should not connect to MySQL using `root`.
+The application uses a dedicated database user instead of the MySQL root account.
 
 ---
 
-## 4. Start Backend
+## Start Backend
 
 ```bash
 cd backend
-mvn spring-boot:run -Dspring-boot.run.profiles=dev
+mvn spring-boot:run
 ```
 
 Backend:
@@ -1019,15 +1312,9 @@ Backend:
 http://localhost:8080
 ```
 
-Health endpoint:
-
-```text
-http://localhost:8080/api/health
-```
-
 ---
 
-## 5. Start Frontend
+## Start Frontend
 
 Open another terminal:
 
@@ -1045,482 +1332,203 @@ http://localhost:5173
 
 ---
 
-# 🧪 Testing
+# 📚 API Documentation
 
-The project already contains backend tests for the implemented phases.
+The application provides API documentation through OpenAPI/Swagger.
 
-### Current Test Areas
-
-- Health endpoint
-- Persistence mappings
-- JWT service
-- Authorization rules
-- Authentication service
-- Money movement integration
-- Database integration
-
-Run:
-
-```bash
-cd backend
-mvn test
-```
-
-The final testing phase will expand this into:
-
-- JUnit 5
-- Mockito
-- Spring Security Test
-- `@WebMvcTest`
-- `@SpringBootTest`
-- Embedded Kafka
-- Concurrency tests
-- JaCoCo coverage
-- 75% service/security coverage gate
-
----
-
-# 🔄 Planned Kafka Architecture
-
-The completed architecture will use Kafka topics such as:
+Swagger UI:
 
 ```text
-transaction.created
-transaction.flagged
-account.status.changed
-user.registered
+http://localhost:8080/swagger-ui/index.html
 ```
 
-and dead-letter topics:
+OpenAPI specification:
 
 ```text
-*.DLT
-```
-
-Consumer groups:
-
-```text
-audit-group
-fraud-group
-notification-group
-```
-
-The same transaction event can therefore independently trigger:
-
-```text
-Transaction
-     │
-     ▼
-Kafka
- ┌───┼───────────────┐
- ▼   ▼               ▼
-Audit Fraud       Notification
- │     │               │
- ▼     ▼               ▼
-MySQL MySQL          MySQL
-```
-
-Events are designed to be processed idempotently because Kafka provides at-least-once delivery semantics.
-
----
-
-# ⚡ Planned Redis Architecture
-
-Redis will be used for:
-
-```text
-Account Cache
-User Profile Cache
-Transaction Status Cache
-Refresh Token Store
-Rate Limiting
-Fraud Velocity Tracking
-```
-
-Planned key examples:
-
-```text
-account:{id}
-user:profile:{id}
-txn:status:{reference}
-rl:{userOrIp}:{route}
-refresh:{jti}
-fraud:velocity:{accountId}
+http://localhost:8080/v3/api-docs
 ```
 
 ---
 
-# 🐳 Docker
-
-Docker support is part of the upcoming infrastructure phase.
-
-The planned Docker Compose environment will contain:
+# 🧭 Application Flow
 
 ```text
-MySQL
-Redis
-Kafka
-Kafka UI
-Backend
-Frontend
-```
-
-The backend and frontend will use multi-stage Docker builds.
-
----
-
-# 🚀 CI/CD
-
-The planned GitHub Actions pipeline will contain four major jobs.
-
-```text
-GitHub Push
-     │
-     ├── Backend
-     │     ├── JDK 21
-     │     ├── Maven verify
-     │     ├── MySQL service
-     │     ├── Redis service
-     │     └── JaCoCo
-     │
-     ├── Frontend
-     │     ├── npm ci
-     │     ├── lint
-     │     └── build
-     │
-     ├── Images
-     │     └── Build + Push to GHCR
-     │
-     └── Deploy
-           └── Render Deploy Hook
+User Registration
+       │
+       ▼
+Authentication
+       │
+       ▼
+JWT Access + Refresh Token
+       │
+       ▼
+Open Bank Account
+       │
+       ▼
+Deposit / Withdraw
+       │
+       ▼
+Add & Verify Beneficiary
+       │
+       ▼
+Fund Transfer
+       │
+       ▼
+Transaction Created
+       │
+       ├───────────────┐
+       ▼               ▼
+    Audit            Fraud
+       │               │
+       └───────┬───────┘
+               ▼
+         Notification
+               │
+               ▼
+        Transaction History
+               │
+               ▼
+         Account Statement
 ```
 
 ---
 
-# ☁️ Deployment Roadmap
+# 🎨 Frontend Design
 
-The planned deployment architecture is:
+BankFlow follows an enterprise banking interface style.
+
+### Design Principles
+
+- Clean banking interface
+- Data-focused layouts
+- Institutional color palette
+- Plain CSS3
+- CSS design tokens
+- Responsive layouts
+- Accessible components
+- Consistent spacing
+- Clear financial status indicators
+- Skeleton loading states
+- Confirmation dialogs for destructive operations
+
+### Financial Formatting
+
+Currency values use Indian number formatting:
 
 ```text
-Frontend
-   │
-   ▼
-Vercel / Netlify
-
-Backend
-   │
-   ▼
-Render
-
-Database
-   │
-   ▼
-Managed MySQL
-
-Cache
-   │
-   ▼
-Redis Cloud
-
-Messaging
-   │
-   ▼
-Confluent Cloud
+₹1,50,000.00
 ```
 
-AWS is intentionally not required for the planned deployment.
+Account numbers use grouped monospace formatting:
+
+```text
+ACC0 0000 0001
+```
+
+Dates use human-readable formats rather than raw ISO timestamps.
 
 ---
 
-# 🗺️ Development Roadmap
+# ♿ Accessibility
 
-## Phase 1 — Scaffold
+The frontend follows accessibility-oriented practices including:
 
-```text
-✅ Git repository
-✅ Maven backend
-✅ React/Vite frontend
-✅ Environment configuration
-✅ MySQL setup
-✅ Health endpoint
-✅ Frontend design system
-```
+- WCAG AA contrast
+- Keyboard navigation
+- Visible focus states
+- Semantic HTML
+- Accessible tables
+- Proper form labels
+- Focus management
+- Accessible dialogs
+- Screen-reader-friendly loading states
+- Text labels alongside color indicators
 
-## Phase 2 — Persistence
+---
 
-```text
-✅ Entities
-✅ Enums
-✅ Repositories
-✅ Flyway migrations
-✅ Seed roles
-```
+# 🌙 Dark Mode
 
-## Phase 3 — Security
+The application supports dark mode through centralized CSS design tokens.
 
-```text
-✅ Spring Security
-✅ JWT authentication
-✅ Registration
-✅ Login
-✅ Refresh token
-✅ Logout
-✅ Role-based authorization
-✅ Ownership guard
-```
-
-## Phase 4 — Banking Operations
-
-```text
-✅ Accounts
-✅ Savings/current account support
-✅ Deposit
-✅ Withdrawal
-✅ Transfer
-✅ Beneficiaries
-✅ Transaction history
-✅ Statements
-✅ Idempotency
-✅ Account locking
-✅ Daily limits
-```
-
-## Phase 5 — Frontend
-
-```text
-⬜ Customer login/register
-⬜ Customer dashboard
-⬜ Account list
-⬜ Account details
-⬜ Open account
-⬜ Deposit UI
-⬜ Withdrawal UI
-⬜ Transfer UI
-⬜ Beneficiary management
-⬜ Transaction history
-⬜ Transaction details
-⬜ Statement UI
-⬜ Profile management
-⬜ Notifications
-⬜ Admin dashboard
-⬜ Admin user management
-⬜ Admin account management
-⬜ Transaction monitoring
-⬜ Audit log UI
-⬜ Responsive layouts
-⬜ Final dark mode integration
-```
-
-## Phase 6 — Redis
-
-```text
-⬜ Redis connection
-⬜ Cache manager
-⬜ Account caching
-⬜ Profile caching
-⬜ Transaction status caching
-⬜ Cache invalidation
-⬜ Refresh-token storage
-⬜ Rate limiting
-⬜ Fraud velocity tracking
-```
-
-## Phase 7 — Kafka
-
-```text
-⬜ Kafka configuration
-⬜ Kafka producers
-⬜ Transaction events
-⬜ User registration events
-⬜ Account status events
-⬜ Fraud events
-⬜ Audit consumer
-⬜ Fraud consumer
-⬜ Notification consumer
-⬜ Consumer idempotency
-⬜ Retry handling
-⬜ Dead-letter topics
-```
-
-## Phase 8 — Testing
-
-```text
-⬜ Complete unit test suite
-⬜ Web MVC tests
-⬜ Security tests
-⬜ Integration tests
-⬜ Embedded Kafka tests
-⬜ Concurrency tests
-⬜ Redis tests
-⬜ JaCoCo
-⬜ 75% coverage gate
-```
-
-## Phase 9 — Docker
-
-```text
-⬜ Backend Dockerfile
-⬜ Frontend Dockerfile
-⬜ Docker Compose
-⬜ MySQL container
-⬜ Redis container
-⬜ Kafka container
-⬜ Kafka UI
-⬜ Health checks
-⬜ Multi-stage builds
-```
-
-## Phase 10 — CI/CD
-
-```text
-⬜ GitHub Actions
-⬜ Backend verification
-⬜ Frontend lint/build
-⬜ Integration services
-⬜ JaCoCo reporting
-⬜ GHCR image publishing
-⬜ Deployment workflow
-```
-
-## Phase 11 — Deployment
-
-```text
-⬜ Managed MySQL
-⬜ Redis Cloud
-⬜ Confluent Cloud
-⬜ Render backend
-⬜ Vercel/Netlify frontend
-⬜ Environment variables
-⬜ Production CORS
-⬜ Production verification
-```
-
-## Phase 12 — Documentation
-
-```text
-⬜ Swagger/OpenAPI
-⬜ ER diagram
-⬜ Architecture diagram
-⬜ Postman collection
-⬜ API documentation
-⬜ Deployment documentation
-⬜ Final README
-⬜ Project demo flow
-```
+Components consume theme variables instead of hardcoded colors, allowing consistent theme behavior throughout the application.
 
 ---
 
 # 🔮 Future Enhancements
 
-After the planned 12 phases, possible extensions include:
+Potential future improvements include:
 
-- OTP-based authentication
-- Email notifications
-- SMS notification integration
-- KYC document workflow
-- Beneficiary approval workflow
+- OTP authentication
+- Email verification
+- SMS notifications
+- Advanced KYC workflow
 - Scheduled transfers
 - Recurring payments
-- Transaction export
-- Advanced fraud rules
-- Fraud risk scoring
-- Admin analytics
-- Account statement PDF generation
-- Multi-currency support
-- Transaction search improvements
-- Observability with metrics and tracing
-- Centralized logging
-- API versioning
-- Production monitoring
+- Advanced fraud scoring
+- Machine-learning-based fraud detection
+- Multi-currency accounts
+- International transfers
+- Enhanced analytics
+- Advanced reporting
+- Centralized observability
+- Distributed tracing
+- Structured logging
 - Kubernetes deployment
+- Mobile application
+- Additional banking products
 
 ---
 
-# 🎯 Interview Talking Points
+# 🧠 Why BankFlow?
 
-BankFlow is designed to demonstrate practical backend engineering concepts.
+BankFlow is designed around practical software engineering concepts that appear in real financial applications:
 
-### Financial Transactions
-
-- Pessimistic row locking
-- Deterministic locking order
-- Transaction boundaries
+- Secure authentication
+- Role-based authorization
+- Transaction management
+- Database consistency
+- Concurrent transaction handling
 - Idempotency
-- Balance consistency
-- BigDecimal monetary calculations
+- Event-driven architecture
+- Distributed caching
+- Rate limiting
+- Fraud detection
+- Audit logging
+- Automated testing
+- Containerization
+- CI/CD
+- API documentation
 
-### Security
-
-- JWT authentication
-- BCrypt
-- Role-based access control
-- Method-level authorization
-- Row-level ownership checks
-- Refresh-token revocation
-
-### Database
-
-- MySQL
-- JPA/Hibernate
-- Flyway
-- Database constraints
-- Indexing
-- Transaction isolation
-- `SELECT FOR UPDATE`
-
-### Distributed Systems
-
-- Kafka
-- Event-driven processing
-- At-least-once delivery
-- Idempotent consumers
-- Dead-letter queues
-- Asynchronous fraud processing
-
-### Performance
-
-- Redis caching
-- Cache invalidation
-- Sliding-window rate limiting
-- Database pagination
-
-### DevOps
-
-- Docker
-- Docker Compose
-- GitHub Actions
-- GHCR
-- Cloud deployment
+The project focuses on building a system that is not only functional, but also structured around maintainability, security and scalability.
 
 ---
 
-# 📚 Documentation
+# 📁 Documentation
 
-Project documentation:
+Additional project documentation:
 
 ```text
 BLUEPRINT.md
+DESIGN.md
+README.md
 ```
+
+### BLUEPRINT.md
 
 Contains:
 
-- Architecture
-- Infrastructure strategy
-- Phase roadmap
+- Architecture decisions
+- Infrastructure configuration
 - Security model
 - Database design
-- Redis design
-- Kafka design
+- Redis architecture
+- Kafka architecture
 - Testing strategy
-- Docker strategy
-- CI/CD strategy
-- Deployment strategy
+- Docker configuration
+- CI/CD architecture
+- Deployment design
 
-Frontend design rules:
-
-```text
-DESIGN.md
-```
+### DESIGN.md
 
 Contains:
 
@@ -1529,20 +1537,22 @@ Contains:
 - Colors
 - Spacing
 - Accessibility
-- Financial number formatting
+- Financial formatting
 - Interaction rules
 - Dark mode
 - CSS conventions
 
 ---
 
-# 🤝 Development Workflow
+# 🤝 Contributing
+
+Contributions are welcome.
 
 ```bash
 git checkout -b feature/your-feature
 ```
 
-Make changes and verify locally:
+Make your changes, test them locally and commit:
 
 ```bash
 git add .
@@ -1550,22 +1560,20 @@ git commit -m "Add your feature"
 git push origin feature/your-feature
 ```
 
-Keep commits focused and descriptive.
+For major changes, open an issue first to discuss the proposed improvement.
 
 ---
 
-# ❤️ Show Your Support
+# ⭐ Show Your Support
 
-If you find this project useful or interesting:
+If you find BankFlow useful or interesting:
 
 - ⭐ Star the repository
-- 🍴 Fork the project
+- 🍴 Fork the repository
 - 🐛 Report issues
 - 💡 Suggest improvements
 - 🤝 Contribute
 - 📢 Share the project
-
-Every bit of support helps improve the project.
 
 ---
 
@@ -1575,7 +1583,7 @@ Every bit of support helps improve the project.
 
 **Full Stack Developer**
 
-Passionate about building scalable backend systems, modern web applications, secure APIs and production-oriented software architectures.
+Building full-stack applications with Java, Spring Boot, React, REST APIs, databases, event-driven systems and modern development practices.
 
 ---
 
@@ -1608,14 +1616,35 @@ MIT License
 
 Copyright (c) 2026 Piyush Kumar
 
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files, to deal in the Software
+without restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies of the
+Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 ```
 
 ---
 
 <p align="center">
-  <strong>🏦 BankFlow — Building a realistic digital banking platform, one phase at a time.</strong>
+  <strong>🏦 BankFlow</strong>
 </p>
 
 <p align="center">
-  Made with ☕ Java, Spring Boot, React and a lot of engineering.
+  Digital Banking & Transaction Platform
+</p>
+
+<p align="center">
+  Built with Java • Spring Boot • React • MySQL • Redis • Apache Kafka
 </p>
